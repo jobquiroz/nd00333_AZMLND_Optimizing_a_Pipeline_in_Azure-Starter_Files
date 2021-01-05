@@ -30,6 +30,7 @@ Finally, the model was evaluated using SDK functionalities.
 AutoML was very straightforward to use, I just defined the training and validation data (without further preprocessing), the label column, and the type of task and AutoML did the rest. 
 AutoML tried 30 different models in a single experiment, and the result was better than the scikit-learn pipeline: 
 
+![Screenshot](ScreenShot.png)
 
 ## Pipeline comparison
 
