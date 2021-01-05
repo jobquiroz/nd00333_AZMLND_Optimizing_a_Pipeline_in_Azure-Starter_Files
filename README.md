@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="AzureML.jpeg" width="500" height="250">
+</p>
+
 # Optimizing an ML Pipeline in Azure
 
 ## Overview
