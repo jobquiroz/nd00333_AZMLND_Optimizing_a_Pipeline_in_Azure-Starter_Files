@@ -16,7 +16,9 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 
 # TODO: Split data into train and test sets.
 #x_train, x_test, y_train, y_test = train_test_split(x, y)
-### YOUR CODE HERE ###a
+### YOUR CODE HERE ###a  
+
+# Reading the data, cleaning and splitting it is done within the main function.
 
 run = Run.get_context()
 
@@ -46,6 +48,7 @@ def clean_data(data):
 
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
     
+    # This was also added, it wasn't returning anything
     return x_df, y_df
 
 def main():
@@ -60,12 +63,13 @@ def main():
     run.log("Regularization Strength:", np.float(args.C))
     run.log("Max iterations:", np.int(args.max_iter))
 
+    # Creating TabularDataset from URL
     factory = TabularDatasetFactory()
-    train_data_path = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
-    valid_data_path = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_validate.csv"
+    training_data_url = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
+    validation_data_url = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_validate.csv"
 
-    train_ds = factory.from_delimited_files(train_data_path)
-    valid_ds = factory.from_delimited_files(valid_data_path)
+    train_ds = factory.from_delimited_files(training_data_url)
+    valid_ds = factory.from_delimited_files(training_data_url)
 
     X_train, y_train = clean_data(train_ds)
     X_valid, y_valid = clean_data(valid_ds)
@@ -74,9 +78,9 @@ def main():
 
     accuracy = model.score(X_valid, y_valid)
     run.log("Accuracy", np.float(accuracy))
-    #os.makedirs('outputs', exist_ok=True)
-
-    #joblib.dump(model, 'outputs/bankmarketing-logit-model.joblib')
+    
+    os.makedirs('outputs', exist_ok=True)
+    joblib.dump(model, 'outputs/bankmarketing-logistic-model.joblib')
 
 if __name__ == '__main__':
     main()
