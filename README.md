@@ -37,6 +37,12 @@ AutoML tried 30 different models in a single experiment, and the result was bett
 
 ![Screenshot](ScreenShot.png)
 
+The best performing model was a VotingEnsamble of XGBoostClassifier, LightGBM, LogisticRegression, and RandomForest with the following weights: 
+
+
+
+
+
 ## Pipeline comparison
 
 AutoML was more convenient because it took the same time for setting it up, but the results were better. The only disadvantage is that it spent more time using Azure Resources, which increases the costs. 
