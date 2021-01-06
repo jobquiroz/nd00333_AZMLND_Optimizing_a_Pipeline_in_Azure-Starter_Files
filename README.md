@@ -43,4 +43,4 @@ AutoML was more convenient because it took the same time for setting it up, but 
 
 ## Future work
 
-It would be interesting to try a more complex scikit-learn model and comparing it to AutoML. 
+The goal of this project was to explore two different workflows in Azure ML, however, the problem that is being solved can be explored deeply. I think it would be interesting to perform more feature engineering on several columns. Azure ML includes tools for detecting which features are more relevant (for each model), this can be the first step to derive new features and train new models. 
