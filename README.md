@@ -39,9 +39,14 @@ AutoML tried 30 different models in a single experiment, and the result was bett
 
 The best performing model was a VotingEnsamble of XGBoostClassifier, LightGBM, LogisticRegression, and RandomForest with the following weights: 
 
-
-
-
+- XGBoostClassifier:  0.2857
+- XGBoostClassifier:  0.2142
+- XGBoostClassifier:  0.1428
+- LightGBM:           0.0714
+- LightGBM:           0.0714
+- XGBoostClassifier:  0.0714
+- LogisticRegression: 0.0714
+- RandomForest:       0.0714
 
 ## Pipeline comparison
 
